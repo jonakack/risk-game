@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
 #include "gamestate.hpp"
 
 class GameState_Menu : public GameState
@@ -10,4 +12,5 @@ public:
     virtual void handleInput();
     virtual void update(const float dt);
     virtual void draw(const float dt);
+    
 };

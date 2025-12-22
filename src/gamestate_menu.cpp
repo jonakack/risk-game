@@ -1,5 +1,3 @@
-#include <SFML/Graphics.hpp>
-
 #include "gamestate_menu.hpp"
 
 // Constructor
@@ -28,5 +26,4 @@ void GameState_Menu::update(const float dt)
 
 void GameState_Menu::draw(const float dt)
 {
-
 }

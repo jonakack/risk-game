@@ -3,8 +3,31 @@
 
 // Constructor
 Game::Game()
-    : window(sf::RenderWindow(sf::VideoMode({1920, 1080}), "Risk"))
 {
+    window.create(sf::VideoMode({1920, 1080}), "Risk");
+    window.setFramerateLimit(300);
+}
+
+void Game::gameLoop()
+{
+    sf::Clock clock;
+
+    while (window.isOpen())
+    {
+        sf::Time elapsed = clock.restart();
+        float dt = elapsed.asSeconds();
+
+        if (peekState() == nullptr)
+            continue;
+
+        peekState()->handleInput();
+
+        peekState()->update(dt);
+
+        window.clear(sf::Color::Black);
+        peekState()->draw(dt);
+        window.display();
+    }
 }
 
 // Destructor
@@ -43,23 +66,4 @@ GameState *Game::peekState()
     if (states.empty())
         return nullptr;
     return states.top();
-}
-
-void Game::gameLoop()
-{
-    sf::Clock clock;
-
-    while (window.isOpen())
-    {
-        sf::Time elapsed = clock.restart();
-        float dt = elapsed.asSeconds();
-
-        if (peekState() == nullptr)
-            continue;
-        peekState()->handleInput();
-        peekState()->update(dt);
-        window.clear(sf::Color::Black);
-        peekState()->draw(dt);
-        window.display();
-    }
 }
