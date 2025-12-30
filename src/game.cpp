@@ -4,7 +4,8 @@
 // Constructor
 Game::Game()
 {
-    window.create(sf::VideoMode({1920, 1080}), "Risk");
+    // Create the game window
+    window.create(sf::VideoMode({2560, 1440}), "Risk");
     window.setFramerateLimit(300);
 }
 

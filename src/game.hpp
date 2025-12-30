@@ -4,6 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "textures.hpp"
+
 class GameState;
 
 class Game
@@ -20,4 +22,5 @@ public:
 
     std::stack<GameState *> states;
     sf::RenderWindow window;
+    
 };

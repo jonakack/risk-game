@@ -6,18 +6,15 @@
 
 #include "gamestate.hpp"
 
-class GameState_Menu : public GameState
+class GameState_Template : public GameState
 {
 public:
-    GameState_Menu(Game *game);
+    GameState_Template(Game *game);
 
     virtual void handleInput();
     virtual void update(const float dt);
     virtual void draw(const float dt);
 
 private:
-    void loadBackground();
-    
-    sf::Texture backgroundTexture;
-    std::optional<sf::Sprite> backgroundSprite;
+
 };
